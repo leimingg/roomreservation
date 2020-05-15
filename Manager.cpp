@@ -8,6 +8,14 @@ Manager::Manager(string name, string pwd) {
 	this->m_Pwd = pwd;
 
 	this->initVector();
+	ifstream ifs;
+	ifs.open(COMPUTER_FILE, ios::in);
+	ComputerRoom com;
+	while (ifs >> com.m_ComId && ifs >> com.m_MaxNum) {
+		vCom.push_back(com);
+	}
+	ifs.close();
+	cout << "The number of computers in room: " << vCom.size() << endl;
 }
 
 void Manager::operMenu() {
@@ -109,11 +117,21 @@ void Manager::showPerson() {
 }
 
 void Manager::showComputer() {
-
+	cout << "Computer Room Information: " << endl;
+	for (vector<ComputerRoom>::iterator it = vCom.begin();it!= vCom.end();it++) {
+		cout << "Computer Room Number: " << it->m_ComId << " capacity: " << it->m_MaxNum << endl;
+	}
+	system("pause");
+	system("cls");
 }
 
 void Manager::cleanFile() {
+	ofstream ofs(ORDER_FILE, ios::trunc);
+	ofs.close();
 
+	cout << "Clean File Successfully." << endl;
+	system("pause");
+	system("cls");
 }
 
 void Manager::initVector() {

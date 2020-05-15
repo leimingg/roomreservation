@@ -9,6 +9,7 @@ using namespace std;
 #include "student.h"
 #include "teacher.h"
 #include <algorithm>
+#include "computerRoom.h"
 
 class Manager :public Identity {
 public:
@@ -23,4 +24,5 @@ public:
 	vector<Student> vStu;
 	vector<Teacher> vTea;
 	bool checkRepeat(int id, int type);//param 1 is the input ID to be check duplicate,param 2 is student/professor
+	vector<ComputerRoom> vCom;
 };

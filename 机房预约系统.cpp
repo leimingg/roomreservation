@@ -8,6 +8,31 @@ using namespace std;
 #include "teacher.h"
 #include "Manager.h"
 
+//enter student's operation menu
+void studentMenu(Identity* &student) {
+	while (true) {
+		student->operMenu();
+		Student* stu = (Student*)student;
+		int select = 0;
+		cin >> select;
+		if (select == 1) {//make reservation
+			stu->applyOrder();
+		} else if (select == 2) {//check Your Reservation
+			stu->showMyOrder();
+		} else if (select == 3) {//check all reservations
+			stu->showAllOrder();
+		} else if (select == 4) {//Cancel Reservation
+			stu->cancelOrder();
+		} else {
+			delete student;
+			cout << "Log off Successfully" << endl;
+			system("pause");
+			system("cls");
+			return;
+		}
+	}
+}
+
 //enter administrator's operation menu
 void managerMenu(Identity*& manager) {
 	while (true) {
@@ -78,6 +103,8 @@ void LoginIn(string fileName, int type) {
 				system("cls");
 				person = new Student(id,name,pwd);
 				//enter next level menu
+				studentMenu(person);
+				return;
 			}
 		}
 

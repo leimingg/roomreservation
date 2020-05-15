@@ -1,0 +1,2 @@
+C:\Users\Ming\source\repos\RoomReservationSys\Debug\RoomReservationSys.exe
+C:\Users\Ming\source\repos\RoomReservationSys\Debug\RoomReservationSys.pdb
