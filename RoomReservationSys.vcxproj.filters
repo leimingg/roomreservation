@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="机房预约系统.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="student.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
@@ -28,6 +25,9 @@
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="orderFile.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomReservationSys.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>

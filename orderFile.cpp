@@ -71,14 +71,26 @@ OrderFile::OrderFile() {
 	}
 	ifs.close();
 	//test map
-	for (map<int, map<string, string>>::iterator it = m_orderData.begin();it != m_orderData.end();it++) {
+	/*for (map<int, map<string, string>>::iterator it = m_orderData.begin();it != m_orderData.end();it++) {
 		cout << "Index=" << it->first << " value=" << endl;
 		for (map<string, string>::iterator mit = (*it).second.begin();mit != it->second.end();mit++) {
 			cout << "key=" << mit->first << " value=" << mit->second << " ";
 		}
 		cout << endl;
-	}
+	}*/
 }
 void OrderFile::updateOrder() {
-
+	if (this->m_Size == 0) {
+		return;
+	}
+	ofstream ofs(ORDER_FILE, ios::out | ios::trunc);
+	for (int i = 0;i < this->m_Size;i++) {
+		ofs << "date:" << this->m_orderData[i]["date"] << " ";
+		ofs << "interval:" << this->m_orderData[i]["interval"] << " ";
+		ofs << "stuId:" << this->m_orderData[i]["stuId"] << " ";
+		ofs << "stuName:" << this->m_orderData[i]["stuName"] << " ";
+		ofs << "roomId:" << this->m_orderData[i]["roomId"] << " ";
+		ofs << "status:" << this->m_orderData[i]["status"] << " ";
+	}
+	ofs.close();
 }
